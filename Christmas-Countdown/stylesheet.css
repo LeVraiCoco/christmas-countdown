@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+* {
+	font-family: "Poppins", sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	user-select: none;
+	text-transform: uppercase;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	color: #e6f4f1;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: radial-gradient(circle, #b3122b 0%, #7a0c1e 50%, #3d0610 100%);
+}
+
+#coutdown-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	padding: 48px 56px;
+	border-radius: 24px;
+
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+#coutdown-container > h2 {
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	color: #f5d98b;
+}
+
+.row-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: 16px;
+	margin-block: 32px;
+}
+
+.counter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 120px;
+}
+
+.counter h1 {
+	font-size: 4rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.counter h2 {
+	font-size: 0.8rem;
+	font-weight: 400;
+	letter-spacing: 0.2em;
+	opacity: 0.8;
+}
+
+#song-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 48px;
+	height: 48px;
+	font-size: 1.3rem;
+	color: #fff;
+
+	position: fixed;
+	bottom: 24px;
+	left: 24px;
+
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 50%;
+
+	cursor: pointer;
+	transition-duration: 0.2s;
+}
+
+#song-button:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+/* Falling snow */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	opacity: 0.8;
+	background-image:
+		radial-gradient(3px 3px at 20px 30px, #fff, transparent),
+		radial-gradient(2px 2px at 90px 80px, #fff, transparent),
+		radial-gradient(4px 4px at 160px 20px, #fff, transparent),
+		radial-gradient(2px 2px at 220px 120px, #fff, transparent),
+		radial-gradient(3px 3px at 60px 130px, #fff, transparent);
+	background-size: 250px 150px;
+	animation: snow 6s linear infinite;
+}
+@keyframes snow {
+	to {
+		background-position: 250px 1050px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+	#coutdown-container {
+		padding: 32px 20px;
+	}
+	.row-container {
+		flex-wrap: wrap;
+		gap: 24px 8px;
+	}
+	.counter {
+		width: 45%;
+	}
+	.counter h1 {
+		font-size: 3rem;
+	}
+}
